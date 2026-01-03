@@ -1,0 +1,63 @@
+name: "🤝 Client Expert Request"
+description: "Request a custom AI expert workflow for your business needs"
+title: "[Expert Request]: <Expert Title>"
+labels: ["client-expert-request", "expert-workflow"]
+body:
+  - type: input
+    id: company_name
+    attributes:
+      label: "Company Name"
+      description: "Your company name"
+      placeholder: "Acme"
+    validations:
+      required: true
+
+  - type: input
+    id: expert_title
+    attributes:
+      label: "Expert Workflow Title"
+      description: "Brief title for the AI expert workflow you're requesting"
+      placeholder: "Financial Report Analysis Expert"
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ## 🤝 Client Expert Request
+
+        Thank you for your interest in requesting a custom AI expert workflow from Volt IQ!
+
+        **Please complete the full request form on Microsoft Forms:**
+
+        👉 **[https://forms.office.com/r/0dwK1iRzrm](https://forms.office.com/r/0dwK1iRzrm)**
+
+        The Microsoft Forms includes detailed sections for:
+        - Company Information
+        - Contact Information
+        - Expert Requirements & Description
+        - Current Challenge/Problem Statement
+        - Expected Outcomes
+        - Test Cases
+        - Timeline
+        - Supporting Documentation
+
+        This helps us:
+        - Collect comprehensive business requirements securely
+        - Handle sensitive company information appropriately
+        - Track and prioritize expert workflow requests
+        - Keep you updated throughout the development process
+
+        For any questions, contact us at **ding.nie@volt-iq.com**
+
+        ---
+
+        _This GitHub issue is for tracking purposes only. Please submit the detailed request through Microsoft Forms._
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: "Confirmation"
+      options:
+        - label: "I have submitted (or will submit) the detailed request via Microsoft Forms"
+          required: true

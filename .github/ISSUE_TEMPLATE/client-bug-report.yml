@@ -1,0 +1,97 @@
+name: "🐞 Client Bug Report"
+description: "Report a bug or issue with your Volt IQ AI Expert workflow"
+title: "[Client Bug]: <Short description>"
+labels: ["client-bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🐞 Client Bug Report
+        Thanks for reporting an issue! Please provide as much detail as possible to help us investigate and resolve it quickly.
+
+  - type: input
+    id: company_name
+    attributes:
+      label: "Company Name"
+      description: "Your company name"
+      placeholder: "Acme"
+    validations:
+      required: true
+
+  - type: input
+    id: expert_workflow_name
+    attributes:
+      label: "Expert Workflow Name"
+      description: "Name of the AI expert workflow experiencing the issue"
+      placeholder: "Financial Report Analysis Expert"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Describe the Bug"
+      description: "What happened? What did you expect to happen instead?"
+      placeholder: |
+        The expert workflow fails to process PDF documents over 10MB.
+        Expected: Documents should be processed regardless of size.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction_steps
+    attributes:
+      label: "Steps to Reproduce"
+      description: "Please include exact steps to reproduce the issue"
+      placeholder: |
+        1. Upload a PDF document larger than 10MB
+        2. Trigger the expert workflow
+        3. Observe error message
+    validations:
+      required: true
+
+  - type: textarea
+    id: error_message
+    attributes:
+      label: "Error Message or Unexpected Behavior"
+      description: "Paste any error messages or describe the unexpected behavior"
+      placeholder: |
+        Error: "File size exceeds maximum limit"
+        or
+        The workflow completes but produces incorrect results
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: "Severity / Impact"
+      description: "How severely does this affect your operations?"
+      options:
+        - Critical - Blocking production use
+        - High - Significant impact on workflow
+        - Medium - Workaround available
+        - Low - Minor inconvenience
+      default: 0
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: reproducibility
+    attributes:
+      label: "Reproducibility"
+      description: "How consistently does the bug occur?"
+      options:
+        - label: "Always reproducible"
+        - label: "Intermittent / Sometimes"
+        - label: "Happened once"
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: "Additional Context"
+      description: "Add any other context, screenshots, or files (upload to OneDrive/Google Drive and share link)"
+      placeholder: |
+        - Screenshots: [link]
+        - Sample files: [link]
+        - Related previous issues: #42
