@@ -23,4 +23,4 @@ Get in touch with us to learn more about how Volt IQ can revolutionize your busi
 
 -   **Address:** Lana, Via Feldgatter 10/2, Bolzano, Italy
 -   **Opening Hours:** 9 AM - 12 PM
--   **Mobile:** +39 348 226 8872, +39 347 736 8438# .github
+-   **Mobile:** +39 348 226 8872, +39 347 736 8438
