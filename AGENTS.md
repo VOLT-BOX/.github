@@ -1,4 +1,5 @@
 # AI Agent Guidelines
+> AI Agent Guidelines, Maintained by @erbanku and Fellow AI Agents.
 
 ## Basic Rules
 
