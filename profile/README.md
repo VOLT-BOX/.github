@@ -1,7 +1,5 @@
 # Volt LogIQ® - We bring your company into the AI Era.
 
-> We bring your company into the AI Era.
-
 ![VoltLogIQ](./voltlogiq-logo.png)
 
 ## About Us
