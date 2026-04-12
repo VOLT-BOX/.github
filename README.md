@@ -1,10 +1,10 @@
-# Volt IQ
+# Volt LogIQ® - We bring your company into the AI Era.
 
-> We bring your company into the AI Era.
+![VoltLogIQ](profile/voltlogiq-logo.png)
 
 ## About Us
 
-At Volt IQ, we specialize in providing cutting-edge **Enterprise AI solutions**. Our mission is to empower your business with advanced artificial intelligence, helping you stay ahead in a rapidly evolving technological landscape. We are dedicated to delivering secure, efficient, and innovative AI systems tailored to your company's needs.
+At Volt LogIQ®, we specialize in providing cutting-edge **Enterprise AI solutions**. Our mission is to empower your business with advanced artificial intelligence, helping you stay ahead in a rapidly evolving technological landscape. We are dedicated to delivering secure, efficient, and innovative AI systems tailored to your company's needs.
 
 ## Our Expertise
 
@@ -19,7 +19,7 @@ Our AI system is built with a focus on performance, security, and user-friendly 
 
 ## Contact Us
 
-Get in touch with us to learn more about how Volt IQ can revolutionize your business.
+Get in touch with us to learn more about how Volt LogIQ® can revolutionize your business.
 
 -   **Address:** Lana, Via Feldgatter 10/2, Bolzano, Italy
 -   **Opening Hours:** 9 AM - 12 PM
