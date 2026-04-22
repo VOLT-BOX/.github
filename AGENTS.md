@@ -1,6 +1,17 @@
 # AI Agent Guidelines
 > AI Agent Guidelines, Maintained by @erbanku and Fellow AI Agents.
 
+## CHANGELOG (mandatory)
+
+After completing work in this repository, **add or update** the root [CHANGELOG.md](CHANGELOG.md). Conventions:
+
+- **One `## MM/DD/YYYY` H2 per calendar day** (US month/day/year), **newest day first** below the title and attribution line.
+- Under that day, add bullet points for **finished** work (user-visible changes, features, bug fixes, refactors, documentation, or infrastructure) that belong in a release history.
+- If a section for that calendar day **already exists**, **append** bullets to it; do **not** add a second H2 for the same date.
+- If [CHANGELOG.md](CHANGELOG.md) is missing, create it with the same pattern as other sibling repos: `# Changelogs for .github`, the `> Created and Maintained by @erbanku and fellow AI agents` line, then date sections (newest first).
+
+**Mandatory:** every AI agent working in this repository must update the changelog when completing a task here.
+
 ## Basic Rules
 
 1. Prohibited to add emoji in any code and documents.
