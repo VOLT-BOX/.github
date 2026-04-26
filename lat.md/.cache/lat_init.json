@@ -1,0 +1,9 @@
+{
+  "init_version": 1,
+  "file_hashes": {
+    ".cursor/rules/lat.md": "8df27b4b13f8baa27c41b2172fbd59d80fea306e250238ae67b9ba4780be50d8",
+    ".cursor/hooks.json": "1e9e66668256d50e8031e80bc0d6bf79162204c7fde23b2ef7f6659e2aec0f4e",
+    ".agents/skills/lat-md/SKILL.md": "39c77385d424367ce6f9290973e2abef5660d288e4efda3609e4c2c50e0b574a",
+    ".codex/skills/lat-md/SKILL.md": "39c77385d424367ce6f9290973e2abef5660d288e4efda3609e4c2c50e0b574a"
+  }
+}

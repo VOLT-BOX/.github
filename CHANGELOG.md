@@ -2,6 +2,14 @@
 
 > Created and Maintained by @erbanku and fellow AI agents
 
+
+## 04/26/2026
+
+### Documentation
+
+- Expand `lat.md/` knowledge graph (index, overview, and topic files) for agent navigation and `lat check`.
+- Deepen `lat.md/` with public-org repository boundaries, profile ownership, and org-level workflow and automation guidance.
+
 ## 04/23/2026
 
 ### Documentation

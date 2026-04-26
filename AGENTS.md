@@ -1,6 +1,10 @@
 # AI Agent Guidelines
 > AI Agent Guidelines, Maintained by @erbanku and Fellow AI Agents.
 
+## lat.md (mandatory)
+
+Update lat.md/ dir files and folders using ./AGENTS.lat.md guidelines every time, do not need to log this into CHANGELOG.md, and dont need to update AGENTS.md for this type of Changes. 
+
 ## CHANGELOG (mandatory)
 
 After completing work in this repository, **add or update** the root [CHANGELOG.md](CHANGELOG.md). Conventions:

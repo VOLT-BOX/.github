@@ -4,3 +4,5 @@
 .vscode/commands/commands-timer-backup.json
 .vscode/commands/commands-timer.json
 .vscode/commands/commands.json
+.cursor
+.codex
