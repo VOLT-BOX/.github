@@ -63,3 +63,8 @@ After completing work in this repository, **add or update** the root [CHANGELOG.
 - Prefix the PR title with `[WIP]` to skip validation while in draft.
 - Remove `[WIP]` before requesting review.
 
+
+## IDE and tool directories
+
+- Do not create IDE- or AI-tool-specific root directories except `.agents/` (preferred), `.cursor/`, and `.codex/`. Do not create paths such as `.claude/`, `.windsurf/`, `.continue/`, `.copilot/`, `.gemini/`, `.junie/`, or similar new tool roots.
+- User-level AI tool homes belong under `~/.agents/<original-name>/`; if a tool still expects its original home path, keep a symlink there instead of creating a new standalone root directory. Put shared skills, rules, prompts, and AI-tool configuration under `.agents/` whenever the tool does not strictly require `.cursor/` or `.codex/`.
