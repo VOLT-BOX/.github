@@ -1,6 +1,8 @@
 # AI Agent Guidelines
 > AI Agent Guidelines, Maintained by @erbanku and Fellow AI Agents.
 
+Read and follow **both** [`IDENTITY.md`](IDENTITY.md) and this `AGENTS.md`. Do not edit `IDENTITY.md` (humans only).
+
 ## lat.md (mandatory)
 
 Update lat.md/ dir files and folders using ./AGENTS.lat.md guidelines every time, do not need to log this into CHANGELOG.md, and dont need to update AGENTS.md for this type of Changes. 
