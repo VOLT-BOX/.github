@@ -1,4 +1,4 @@
-# Volt LogIQ® - We bring your company into the AI Era.
+## Volt LogIQ® - Enterprise AI on Your Premises, on Your Terms, with European Values.
 
 ![VoltLogIQ](./voltlogiq-logo.png)
 
