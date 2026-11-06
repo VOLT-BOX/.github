@@ -1,4 +1,4 @@
-## Volt LogIQ® - Enterprise AI on Your Premises, on Your Terms, with European Values.
+## Enterprise AI on Your Premises, on Your Terms, with European Values.
 
 ![VoltLogIQ](profile/voltlogiq-logo.png)
 
