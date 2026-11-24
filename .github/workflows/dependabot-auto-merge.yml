@@ -1,0 +1,137 @@
+name: Dependabot auto-merge
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: write
+  pull-requests: write
+  checks: read
+
+concurrency:
+  group: dependabot-auto-merge-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  dependabot-auto-merge:
+    name: dependabot-auto-merge
+    if: github.event.pull_request.user.login == 'dependabot[bot]' && github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+      - name: Assign kebamt and request review
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          set -euo pipefail
+          gh pr edit "$PR_URL" --add-assignee kebamt
+          gh pr edit "$PR_URL" --add-reviewer kebamt
+          gh pr edit "$PR_URL" --add-reviewer VOLT-BOX/engineering
+
+      - name: Wait for other checks, then merge
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          REPO: ${{ github.repository }}
+          SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          own=dependabot-auto-merge
+          deadline=$((SECONDS + 1800))
+          grace=$((SECONDS + 180))
+
+          is_ok() {
+            case "$1" in
+              success|skipped|neutral) return 0 ;;
+              *) return 1 ;;
+            esac
+          }
+
+          is_own() {
+            case "$1" in
+              "$own"|"Dependabot auto-merge / $own") return 0 ;;
+              *) return 1 ;;
+            esac
+          }
+
+          while (( SECONDS < deadline )); do
+            state="$(gh pr view "$PR_URL" --json state --jq .state)"
+            head="$(gh pr view "$PR_URL" --json headRefOid --jq .headRefOid)"
+            if [[ "$state" != "OPEN" ]]; then
+              echo "Pull request is $state."
+              exit 0
+            fi
+            if [[ "$head" != "$SHA" ]]; then
+              echo "Head moved to $head. This run stops."
+              exit 0
+            fi
+
+            other=0
+            pending=0
+            failed=0
+
+            while IFS=$'\t' read -r name status conclusion; do
+              [[ -z "${name:-}" ]] && continue
+              if is_own "$name"; then
+                continue
+              fi
+              other=$((other + 1))
+              if [[ "$status" != "completed" ]]; then
+                pending=$((pending + 1))
+                echo "Pending check: $name ($status)"
+              elif ! is_ok "$conclusion"; then
+                failed=$((failed + 1))
+                echo "Failed check: $name ($conclusion)"
+              fi
+            done < <(gh api --paginate "repos/${REPO}/commits/${SHA}/check-runs?per_page=100" --jq '.check_runs[] | [.name, .status, (.conclusion // "")] | @tsv')
+
+            while IFS=$'\t' read -r context status_state; do
+              [[ -z "${context:-}" ]] && continue
+              if is_own "$context"; then
+                continue
+              fi
+              other=$((other + 1))
+              case "$status_state" in
+                success)
+                  ;;
+                pending)
+                  pending=$((pending + 1))
+                  echo "Pending status: $context"
+                  ;;
+                *)
+                  failed=$((failed + 1))
+                  echo "Failed status: $context ($status_state)"
+                  ;;
+              esac
+            done < <(gh api "repos/${REPO}/commits/${SHA}/status" --jq '.statuses[]? | [.context, .state] | @tsv')
+
+            if (( failed > 0 )); then
+              echo "Checks failed. Not merging."
+              exit 1
+            fi
+            if (( pending > 0 )); then
+              sleep 20
+              continue
+            fi
+            if (( other == 0 )); then
+              if (( SECONDS < grace )); then
+                echo "No other checks have registered yet."
+                sleep 15
+                continue
+              fi
+              echo "No other checks registered. Merging."
+            else
+              echo "Other checks passed."
+            fi
+            break
+          done
+
+          if (( SECONDS >= deadline )); then
+            echo "Timed out waiting for checks."
+            exit 1
+          fi
+
+          if ! gh pr merge "$PR_URL" --squash --auto; then
+            gh pr merge "$PR_URL" --merge --auto
+          fi
